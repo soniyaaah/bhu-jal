@@ -40,3 +40,5 @@ requests
 loguru
 
 pytest
+
+tabulate
