@@ -1,6 +1,8 @@
 # bhu-
 
 ### repo structure
+
+```
 groundwater-intelligence-platform/
 │
 ├── README.md
@@ -111,3 +113,4 @@ groundwater-intelligence-platform/
 └── assets/
     ├── screenshots/
     └── icons/
+```
