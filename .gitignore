@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Environment Variables
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Mac
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Coverage
+.coverage
+htmlcov/
+
+# Build
+build/
+dist/
+
+# Models
+ml/artifacts/
+*.pkl
+*.joblib
+*.h5
+*.keras
+
+# Data
+data/processed/
+data/interim/
+
+# SQLite
+*.db
+
+# Node
+frontend/node_modules/
+
+# React
+frontend/dist/
+
+# Cache
+.cache/
+instructions.md 
