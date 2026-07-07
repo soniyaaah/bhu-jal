@@ -58,3 +58,4 @@ frontend/dist/
 # Cache
 .cache/
 instructions.md 
+/data/raw/
