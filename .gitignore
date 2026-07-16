@@ -48,6 +48,10 @@ data/interim/
 
 # SQLite
 *.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
 
 # Node
 frontend/node_modules/
@@ -62,4 +66,3 @@ instructions.md
 
 big_telegana.xlsx
 data/raw/dwlr_hyderabad.xlsx
-docs/
