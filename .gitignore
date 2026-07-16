@@ -58,4 +58,8 @@ frontend/dist/
 # Cache
 .cache/
 instructions.md 
-/data/raw/
+# /data/raw/
+
+big_telegana.xlsx
+data/raw/dwlr_hyderabad.xlsx
+docs/
