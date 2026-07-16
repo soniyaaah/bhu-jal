@@ -42,3 +42,4 @@ loguru
 pytest
 
 tabulate
+pydantic-settings
