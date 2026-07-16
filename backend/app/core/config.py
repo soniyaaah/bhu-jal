@@ -1,6 +1,10 @@
 from pydantic_settings import BaseSettings
 import os
 
+# Build absolute path to backend directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+DB_PATH = os.path.join(BASE_DIR, "bhu_jal.db")
+
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Groundwater Intelligence Platform API"
     API_V1_STR: str = "/api/v1"
@@ -9,7 +13,7 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
     
     # Dummy variables for future usage
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", f"sqlite:///{DB_PATH}")
     API_KEY_SECRET: str = os.getenv("API_KEY_SECRET", "")
     FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:3000")
 

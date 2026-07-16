@@ -2,14 +2,26 @@ import pandas as pd
 from datetime import timedelta
 from schemas.forecast import ForecastRequest, ForecastResponse, ForecastData
 from services.model_registry import model_registry
+import time
+from sqlalchemy.orm import Session
+from database.repositories.prediction_repository import prediction_repository
+from database.repositories.station_repository import station_repository
+from fastapi import HTTPException
 from core.logger import logger
 
 class ForecastingService:
     @staticmethod
-    def generate_forecast(station_id: str, request: ForecastRequest) -> ForecastResponse:
+    def generate_forecast(station_id: str, request: ForecastRequest, db: Session) -> ForecastResponse:
         """
         Generates a forecast for the given station using loaded ML artifacts.
         """
+        start_time = time.time()
+        
+        # Verify station exists in DB to get the ID for foreign key
+        station = station_repository.get_station_by_name(db, station_id)
+        if not station:
+            raise HTTPException(status_code=404, detail="Station not found in database")
+            
         # Ensure model exists and load artifacts
         model, scaler_x, scaler_y = model_registry.load_artifacts(station_id)
         
@@ -42,12 +54,26 @@ class ForecastingService:
             
             mock_prediction = current_level + (i * 0.1)  # simple linear trend mock
             
+            
             forecast_results.append(ForecastData(
                 target_date=target_date,
                 predicted_water_level=round(mock_prediction, 2)
             ))
             
-        logger.info(f"Successfully generated forecast for {station_id}")
+        processing_time_ms = (time.time() - start_time) * 1000
+        
+        # Persist predictions to database
+        for res in forecast_results:
+            prediction_repository.create_prediction(
+                db=db,
+                station_id=station.id,
+                predicted_value=res.predicted_water_level,
+                model_name=f"{station_id}_model",
+                model_version="1.0.0",
+                processing_time_ms=processing_time_ms
+            )
+            
+        logger.info(f"Successfully generated and persisted forecast for {station_id}")
         
         return ForecastResponse(
             station_id=station_id,
