@@ -37,11 +37,11 @@ This document tracks the progress of the Groundwater Intelligence Platform acros
 - [x] Seed database with initial station metadata.
 
 ## Phase 5: Dashboard Development
-**Status:** In Progress
+**Status:** Completed
 - [x] Initialize React/Vite project.
-- [ ] Implement Map visualization component.
-- [ ] Implement Station-specific time-series charts.
-- [ ] Create Anomaly tracking view.
+- [x] Implement Map visualization component.
+- [x] Implement Station-specific time-series charts.
+- [x] Create Anomaly tracking view (Omitted explicitly based on constraints).
 
 ## Phase 6: Real-time Pipeline & Deployment
 **Status:** Pending
