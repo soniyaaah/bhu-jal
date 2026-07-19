@@ -17,10 +17,12 @@ def get_stations(db: Session = Depends(get_db)):
     stations = station_repository.get_stations(db)
     return [
         StationResponse(
-            station_id=s.name, # Use name as ID for ML registry compatibility
+            id=s.name, # Use name as ID for ML registry compatibility
             name=s.name,
             latitude=s.latitude,
-            longitude=s.longitude
+            longitude=s.longitude,
+            district=s.district or "Unknown",
+            created_at=s.created_at
         ) for s in stations
     ]
 

@@ -35,10 +35,12 @@ class ModelRegistry:
                     logger.info(f"Discovered complete model artifacts for station: {station_id}")
                     # In a real app, lat/long might come from a DB or metadata file
                     self._available_stations[station_id] = StationResponse(
-                        station_id=station_id,
+                        id=station_id,
                         name=station_id.replace("_", " ").title(),
                         latitude=17.0, # Placeholder
-                        longitude=78.0 # Placeholder
+                        longitude=78.0, # Placeholder
+                        district="Unknown",
+                        created_at=None
                     )
                 else:
                     logger.warning(f"Incomplete artifacts for station: {station_id}. Missing scalers.")
