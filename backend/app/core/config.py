@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     
     # Environment variables can override these
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
+    SCHEDULER_ENABLED: bool = os.getenv("SCHEDULER_ENABLED", "true").lower() == "true"
     
     # Dummy variables for future usage
     DATABASE_URL: str = os.getenv("DATABASE_URL", f"sqlite:///{DB_PATH}")

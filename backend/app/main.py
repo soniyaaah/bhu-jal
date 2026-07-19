@@ -6,10 +6,16 @@ from core.logger import logger
 from core.exceptions import AppBaseException, app_exception_handler, generic_exception_handler
 from api.v1.router import api_router
 
+from services.scheduler import scheduler_service
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting up Groundwater Intelligence Platform API...")
+    if settings.SCHEDULER_ENABLED:
+        scheduler_service.start()
     yield
+    if settings.SCHEDULER_ENABLED:
+        scheduler_service.shutdown()
     logger.info("Shutting down API...")
 
 def get_application() -> FastAPI:
