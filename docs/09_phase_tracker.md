@@ -44,8 +44,8 @@ This document tracks the progress of the Groundwater Intelligence Platform acros
 - [x] Create Anomaly tracking view (Omitted explicitly based on constraints).
 
 ## Phase 6: Real-time Pipeline & Deployment
-**Status:** Pending
-- [ ] Implement data ingestion endpoint and background scheduler.
-- [ ] Add WebSocket support for real-time frontend updates.
-- [ ] Dockerize Backend and Frontend.
-- [ ] Deploy to cloud infrastructure (staging/production).
+**Status:** Completed
+- [x] Implement data ingestion endpoint and background scheduler.
+- [x] Add WebSocket support for real-time frontend updates.
+- [x] Dockerize Backend and Frontend.
+- [x] Deploy to cloud infrastructure (staging/production).
