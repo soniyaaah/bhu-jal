@@ -16,3 +16,8 @@ class StationResponse(StationBase):
 class StationDataResponse(BaseModel):
     timestamp: datetime
     water_level: float
+
+class IngestionPayload(BaseModel):
+    station_id: str
+    timestamp: datetime
+    water_level: float
