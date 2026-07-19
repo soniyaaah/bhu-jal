@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime
 from sqlalchemy.sql import func
 from database.base import Base
-from sqlalchemy.orm import relationship
 
 class Station(Base):
     __tablename__ = "stations"

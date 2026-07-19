@@ -3,10 +3,12 @@ from typing import List, Optional
 from datetime import datetime
 
 class StationBase(BaseModel):
-    station_id: str
+    id: str
     name: str
     latitude: Optional[float] = None
     longitude: Optional[float] = None
+    district: Optional[str] = None
+    created_at: Optional[datetime] = None
 
 class StationResponse(StationBase):
     pass
