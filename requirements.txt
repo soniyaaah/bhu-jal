@@ -45,3 +45,7 @@ tabulate
 pydantic-settings
 
 alembic
+
+apscheduler
+websockets
+psycopg2-binary
